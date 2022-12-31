@@ -57,4 +57,105 @@
     transform: translate(30%, 25%);   
   }
 
+  .conteudo{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .conteudo .card{
+    background-color: var(--cor-background-card);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+    margin: auto;
+    box-shadow: 0 0 10px var(--cor-sombra);
+  }
+
+  .conteudo .card header.cabecalho{
+    background-color: var(--cor-texto);
+    height: 27px;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .conteudo .card main.corpo{
+    padding: 3rem 1rem;
+  }
+
+  .conteudo .card main.corpo form{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .conteudo .card main.corpo form input[type="text"]{
+    background-color: var(--cor-background-card);
+    border: none;
+    outline: none;   /* linha de cima do input */
+    border-bottom: 1px solid var(--cor-texto);
+    color: var(--cor-texto);
+    width: 70%;
+  }
+
+  .conteudo .card main.corpo form input[type="text"]::placeholder{
+    color: var(--cor-texto);
+    opacity: 0.4;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .conteudo .card main.corpo form input[type="submit"]{
+    background-color: var(--cor-texto);
+    color: var(--cor-background-card);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+  }
+  
+  .conteudo .card main.corpo form input[type="submit"]:hover{
+    box-shadow: 0 0 5px var(--cor-texto);
+  }
+
+  .conteudo .card main.corpo .resultado{
+    padding: 3rem 0.5rem 1rem 0.5rem;
+  }
+
+  .conteudo .card main.corpo .resultado .carregamento{
+    height: 50px;
+    width: 50px;
+    border: 5px solid var(--cor-texto);
+    margin: 0 auto;
+    border-radius: 50%;
+    border-left-color: var(--cor-background-card);
+    border-right-color: var(--cor-background-card);
+    animation: carregamento 1s linear infinite;
+  }
+
+  @keyframes carregamento{
+    100% {
+        transform: rotate(360deg);
+    }
+  }
+
+
+  .conteudo .card main.corpo .resultado h3.resultado_titulo{
+    color: var(--cor-texto);
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+
+
+  .conteudo .card main.corpo .resultado span.resultado_descricao{
+    color: var(--cor-texto);
+  }
+
+
+
   /*  */
