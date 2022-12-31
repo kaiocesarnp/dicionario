@@ -15,3 +15,35 @@
     scroll-behavior: smooth;
     margin: 0;
   }
+
+  html, body{
+    background-color: var(--cor-background);
+    position: relative;
+  }
+
+  .bg_textos{
+    height: 100vh;
+    position: relative;
+    overflow: hidden; /* não deixa ter rolagem */
+  }
+
+  .textos_background::after{
+    content: ''; /* vazio */
+    position: absolute;
+    margin: auto;
+    font-size: 20rem;
+  }
+
+  .textos_background.tb-1::after{
+    content: "dicionário";
+  }
+
+  .textos_background.tb-2::after{
+    content: "@kaiocesare";
+  }
+
+  .textos_background.tb-1::after{
+    content: "online";
+  }
+
+  /*  */
