@@ -31,19 +31,30 @@
     content: ''; /* vazio */
     position: absolute;
     margin: auto;
-    font-size: 20rem;
+    font-size: 12.3rem;
+    color: var(--cor-texto);
+    font-weight: 900;
+    opacity: 0.07;
   }
 
   .textos_background.tb-1::after{
     content: "dicionário";
-  }
+    top: 0;
+    transform: translate(40%, -40%);   /* primeiro valor = x, movimenta o elemento horizontalmente, o segundo = y, movimenta de forma vertical  */
+}
 
   .textos_background.tb-2::after{
     content: "@kaiocesare";
+    top: 10px;
+    bottom: 0;
+    transform: translate(3%, 47%);   
+    font-size: 9rem;
   }
 
-  .textos_background.tb-1::after{
+  .textos_background.tb-3::after{
     content: "online";
+    bottom: 0;
+    transform: translate(30%, 25%);   
   }
 
   /*  */
