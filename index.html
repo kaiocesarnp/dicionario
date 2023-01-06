@@ -17,14 +17,14 @@
         <article class="card">
             <header class="cabecalho"></header>
             <main class="corpo">
-                <form>
-                    <input type="text" name="palabra" placeholder="Digite a Palavra" required/>
+                <form class="js-formulario">
+                    <input type="text" name="palabra" placeholder="Digite a Palavra" required autocomplete="off" value="cavalo"/>
                     <input type="submit" value="buscar"/>
                 </form>
-                <section class="resultado">
-                    <div class="carregamento"></div>
-                    <h3 class="resultado_titulo">Cavalo</h3>
-                    <span class="resultado_descricao">
+                <section class="resultado js-resultado display-none">
+                    <div class="carregamento js-carregamento display-none"></div>
+                    <h3 class="resultado_titulo js-resultado_titulo">Cavalo</h3>
+                    <span class="resultado_descricao js-resultado_descricao">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam eius deleniti rerum saepe sunt ipsam. Adipisci corporis iure assumenda non quae rerum obcaecati aliquid maiores. Excepturi est omnis quam fugiat.
                     </span>
                 </section>
