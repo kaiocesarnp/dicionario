@@ -9,8 +9,7 @@ let elementoResultadoDescricao = document.querySelector(".js-resultado__descrica
 elementoFormulario.addEventListener("submit", (evento) => {
     evento.preventDefault(); //impede de dar o refresh automaticamente
 
-    elementoResultado.classList.remove("display-none");
-    elementoCarregamento.classList.remove("display-none"); //remove a classe display-none e faz com q o simbolo de carregamento apareça
+    escondeMostraResultado(true);
 
     let palavra = evento.target[0].value;
     let url = `https://api.dicionario-aberto.net/word/cavalo${palavra}`
@@ -24,21 +23,12 @@ elementoFormulario.addEventListener("submit", (evento) => {
         erroPalavraNaoEcontrada ();
         return;
         }
-
-    let funcaoParseamento, elementoParseado;
-            funcaoParseamento = new DOMParser();
-             elementoParseado = funcaoParseamento.parseFromString(resposta[0].xml, "text/xml");
-
-    elementoResultadoTitulo.textContent = elementoParseado
-    .getElementsByTagName("form")[0]
-    .getElementsByTagName("orth")[0].textContent
-    elementoResultadoDescricao.textContent = elementoParseado
-    .getElementsByTagName("sense")[0]
-    .getElementsByTagName("def")[0].textContent
+    let conteudoParseado = parseXML(resposta[0].xml);
+    inserirRespostas(conteudoParseado);
     })
 
     .finally(() => {
-        elementoCarregamento.classList.add("display-none") //adiciona a classe display-none e remove o simbolo de carregamento
+        escondeMostraResultado();
     });
   });
 
@@ -46,3 +36,36 @@ elementoFormulario.addEventListener("submit", (evento) => {
     elementoResultadoTitulo.textContent = "Palavra não encontrada, verifique a grafia e tente novamente!";
         elementoResultadoDescricao.textContent = "";
   }
+
+  function escondeMostraResultado (mostrar = false){
+    if (mostrar){
+        elementoResultado.classList.remove("display-none");
+        elementoCarregamento.classList.remove("display-none"); //remove a classe display-none e faz com q o simbolo de carregamento apareça
+    }else{
+        elementoCarregamento.classList.add("display-none") //adiciona a classe display-none e remove o simbolo de carregamento
+    }
+  }
+
+  function parseXML(data){
+    let resposta = {
+        titulo: "",
+        descricao: "",
+    };
+     funcaoParseamento = new DOMParser();
+
+     resposta.titulo = funcaoParseamento.parseFromString(data, "text/xml")
+     .getElementsByTagName("form")[0]
+     .getElementsByTagName("orth")[0].textContent
+
+     resposta.descricao = funcaoParseamento.parseFromString(data, "text/xml")
+     .getElementsByTagName("sense")[0]
+     .getElementsByTagName("def")[0].textContent
+
+     return resposta;
+  }
+
+  function inserirRespostas(objRespostas){
+    elementoResultadoTitulo.textContent = objRespostas.titulo;
+    elementoResultadoDescricao.textContent = objRespostas.descricao
+  }
+
