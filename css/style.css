@@ -16,6 +16,10 @@
     margin: 0;
   }
 
+  .display-none{
+    display: none;
+  }
+
   html, body{
     background-color: var(--cor-background);
     position: relative;
@@ -138,11 +142,13 @@
   }
 
   @keyframes carregamento{
+    0% {
+        transform: rotate(0deg);
+    }
     100% {
-        transform: rotate(360deg);
+      transform: rotate(360deg);
     }
   }
-
 
   .conteudo .card main.corpo .resultado h3.resultado_titulo{
     color: var(--cor-texto);
@@ -151,11 +157,18 @@
     margin: 1rem;
   }
 
-
   .conteudo .card main.corpo .resultado span.resultado_descricao{
     color: var(--cor-texto);
   }
 
+  /* RESPONSIVO */
 
-
-  /*  */
+@media screen and (max-width: 550px){
+  .conteudo .card main.corpo form{
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .conteudo .card main.corpo form input[type="text"]{
+    width: 100%;
+  }
+}
