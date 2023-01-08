@@ -71,8 +71,8 @@ const input = document.querySelector('.input__search');
         escondeMostraResultado(true);
         let palavra = evento.target[0].value;
         requisicaoFormulario(palavra);
-    
       });
   }
 
   gerenciarFormulario();
+  
