@@ -3,8 +3,7 @@ let elementoResultado = document.querySelector(".js-resultado");
 let elementoCarregamento = document.querySelector(".js-carregamento");
 let elementoResultadoTitulo = document.querySelector(".js-resultado__titulo");
 let elementoResultadoDescricao = document.querySelector(".js-resultado__descricao");
-const input = document.querySelector('.input__search');
-
+let input = document.querySelector('.input__search');
 
   function erroPalavraNaoEncontrada() { //busca o if !resposta[0]
     elementoResultadoTitulo.textContent ="Palavra não encontrada, verifique a grafia e tente novamente!";
