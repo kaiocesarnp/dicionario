@@ -3,6 +3,7 @@ let elementoResultado = document.querySelector(".js-resultado");
 let elementoCarregamento = document.querySelector(".js-carregamento");
 let elementoResultadoTitulo = document.querySelector(".js-resultado__titulo");
 let elementoResultadoDescricao = document.querySelector(".js-resultado__descricao");
+const input = document.querySelector('.input__search');
 
 
   function erroPalavraNaoEncontrada() { //busca o if !resposta[0]
@@ -40,6 +41,7 @@ let elementoResultadoDescricao = document.querySelector(".js-resultado__descrica
   function inserirRespostas(objRespostas){
     elementoResultadoTitulo.textContent = objRespostas.titulo;
     elementoResultadoDescricao.textContent = objRespostas.descricao;
+    input.value = ''; //remover nome ou numero após pesquisar pokemon
   }
 
   function requisicaoFormulario(palavraParaBuscar){
