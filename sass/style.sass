@@ -1,0 +1,143 @@
+@use 'variables'
+
+* 
+    font-family: "Verdana", sans-serif
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    letter-spacing: 0px
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    scroll-behavior: smooth
+    margin: 0
+
+.display-none
+    display: none
+
+html, body
+    background-color: variables.$color-background
+    position: relative
+
+.textos
+    height: 100vh
+    position: relative
+    overflow: hidden // não deixa ter rolagem
+
+    &_background::after
+        content: '' //* vazio
+        position: absolute
+        margin: auto
+        font-size: 12.3rem
+        color: variables.$color-texto
+        font-weight: 900
+        opacity: 0.07
+
+    &_background.tb-1::after
+        content: "dicionário"
+        top: 0
+        transform: translate(40%, -40%) //primeiro valor = x, movimenta o elemento horizontalmente, o segundo = y, movimenta de forma vertical
+
+    &_background.tb-2::after
+        content: "@kaiocesare"
+        top: 10px
+        bottom: 0
+        transform: translate(3%, 47%)
+        font-size: 9rem
+
+    &_background.tb-3::after
+        content: "online"
+        bottom: 0
+        transform: translate(30%, 25%)
+
+.conteudo
+    height: 100vh
+    display: grid
+    place-items: center
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+
+    &_card
+        background-color: variables.$color-background-card
+        width: 100%
+        max-width: 500px
+        border-radius: 5px
+        margin: auto
+        box-shadow: 0 0 10px variables.$color-sombra
+    
+    &_card header.cabecalho
+        background-color: variables.$color-texto
+        height: 27px
+        border-radius: 5px 5px 0 0
+
+    &_card main.corpo
+        padding: 3rem 1rem
+
+    &_card main.corpo form
+        width: 100%
+        display: flex
+        justify-content: space-between
+    
+    &_card main.corpo form input[type="text"]
+        background-color: variables.$color-background-card
+        border: none
+        outline: none   //linha de cima do input
+        border-bottom: 1px solid variables.$color-texto
+        color: variables.$color-texto
+        width: 70%
+
+    &_card main.corpo form input[type="text"]::placeholder
+        color: variables.$color-texto
+        opacity: 0.4
+        font-family: 'Courier New', Courier, monospace
+
+    &_card main.corpo form input[type="submit"]
+        background-color: variables.$color-texto
+        color: var(--cor-background-card)
+        border: none
+        padding: 1rem 1.5rem
+        border-radius: 5px
+        cursor: pointer
+        transition: 0.3s all ease-in-out
+  
+    &_card main.corpo form input[type="submit"]:hover
+        box-shadow: 0 0 5px variables.$color-texto
+
+    &_card main.corpo .resultado
+        padding: 3rem 0.5rem 1rem 0.5rem
+
+    
+    &_card main.corpo .resultado .carregamento
+        height: 50px
+        width: 50px
+        border: 5px solid variables.$color-texto
+        margin: 0 auto
+        border-radius: 50%
+        border-left-color: variables.$color-background-card
+        border-right-color: variables.$color-background-card
+        animation: carregamento 1s linear infinite
+
+    &_card main.corpo .resultado h3.resultado_titulo
+        color: variables.$color-texto
+        text-align: center
+        font-size: 1.5rem
+        margin: 1rem
+
+    &_card main.corpo .resultado span.resultado_descricao
+        color: var(--cor-texto)
+
+@keyframes carregamento
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+
+/* RESPONSIVO */
+@media screen and (max-width: 550px)
+    .conteudo .card main.corpo form
+        flex-direction: column
+        row-gap: 20px
+    .conteudo .card main.corpo form input[type="text"]
+        width: 100%
