@@ -53,12 +53,7 @@ html, body
     @include mixins.conteudo
 
     &_card
-        background-color: variables.$color-background-card
-        width: 100%
-        max-width: 500px
-        border-radius: 5px
-        margin: auto
-        box-shadow: 0 0 10px variables.$color-sombra
+        @include mixins.card
     
     &_card header.cabecalho
         background-color: variables.$color-texto
@@ -103,14 +98,7 @@ html, body
 
     
     &_card main.corpo .resultado .carregamento
-        height: 50px
-        width: 50px
-        border: 5px solid variables.$color-texto
-        margin: 0 auto
-        border-radius: 50%
-        border-left-color: variables.$color-background-card
-        border-right-color: variables.$color-background-card
-        animation: carregamento 1s linear infinite
+        @include mixins.carregamento
 
     &_card main.corpo .resultado h3.resultado_titulo
         color: variables.$color-texto
