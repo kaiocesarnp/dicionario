@@ -1,3 +1,5 @@
+@use 'variables'
+    
 @mixin conteudo
     height: 100vh
     display: grid
@@ -7,3 +9,21 @@
     bottom: 0
     left: 0
     right: 0
+
+@mixin card
+    background-color: variables.$color-background-card
+    width: 100%
+    max-width: 500px
+    border-radius: 5px
+    margin: auto
+    box-shadow: 0 0 10px variables.$color-sombra
+
+@mixin carregamento
+    height: 50px
+    width: 50px
+    border: 5px solid variables.$color-texto
+    margin: 0 auto
+    border-radius: 50%
+    border-left-color: variables.$color-background-card
+    border-right-color: variables.$color-background-card
+    animation: carregamento 1s linear infinite
