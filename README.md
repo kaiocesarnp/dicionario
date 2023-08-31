@@ -1,8 +1,10 @@
+# Dicionário Online
+
 Link do site: https://kaiocesarnp.github.io/dicionario
 
 Este é um simples dicionário online. Ele permite que os usuários pesquisem palavras e obtenham suas definições instantaneamente. O dicionário é acessível a partir de qualquer dispositivo com acesso à internet, tornando-o conveniente para consultas rápidas em qualquer lugar.
 
-Recursos Principais:
+## Recursos Principais:
 
 Busca Rápida: Os usuários podem inserir uma palavra na barra de pesquisa e receberão instantaneamente sua definição.
 
